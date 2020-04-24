@@ -1,0 +1,91 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Font awesome -->
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="./assets/css/materialize.min.css" />
+
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/fontAwesome.css" />
+
+    <title>Employee HSBC</title>
+  </head>
+  <body>
+    <!-- navbar-->
+    <header>
+      <nav class="nav-wrapper teal darken-1">
+        <div class="container">
+          <a href="/" class="brand-logo truncate">Employee HSBC</a>
+          <a href="" class="sidenav-trigger" data-target="mobile-menu">
+            <i class="material-icons">menu</i>
+          </a>
+
+          <ul class="right hide-on-med-and-down">
+            <li><a href="/">Home</a></li>
+            <li><a href="/addEmployee">Employ Staff</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li>
+              <a href="#" class="tooltipped btn-floating btn-small teal lighten-2" data-tooltip="instagram"
+                ><i class="fa fa-instagram"></i
+              ></a>
+            </li>
+
+            <li>
+              <a href="#" class="tooltipped btn-floating btn-small teal lighten-2" data-tooltip="Facebook"
+                ><i class="fa fa-facebook"></i
+              ></a>
+            </li>
+
+            <li>
+              <a href="#" class="tooltipped btn-floating btn-small teal lighten-2" data-tooltip="Twitter"
+                ><i class="fa fa-twitter"></i
+              ></a>
+            </li>
+          </ul>
+
+          <ul class="sidenav grey lighten-2" id="mobile-menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/addEmployee">Employ</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <div class="container" id="body-container">
+      <%- body %>
+    </div>
+
+    <footer>
+      <nav class="nav-wrapper teal darken-1"><p class="center-align">Copyright &copy 2020</p></nav>
+    </footer>
+  </body>
+
+  <!--Compiled minified JavaScript -->
+  <script src="./assets/js/jquery-3.4.1.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="./assets/js/materialize.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('.sidenav').sidenav();
+      $('.materialboxed').materialbox();
+      $('.parallax').parallax();
+      $('.tabs').tabs();
+      $('.datepicker').datepicker({
+        disableWeekends: true,
+      });
+
+      $('.tooltipped').tooltip();
+      $('.scrollspy').scrollSpy();
+    });
+  </script>
+</html>

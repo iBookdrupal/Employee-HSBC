@@ -1,0 +1,43 @@
+<div class="row">
+  <h5 class="center" id="employee-header"><%- title %></h5>
+
+  <div class="col s8 l5">
+    <!--? Form -->
+    <form action="/<%- userStaff._id %>/update" autocomplete="off" method="PUT">
+      <div class="input-field">
+        <i class="material-icons prefix">account_circle</i>
+        <input type="text" name="fullName" required="true" value="<%= userStaff.fullName %>" />
+
+        <label for="name">Full Name </label>
+      </div>
+
+      <div class="input-field col s12 l6 inline">
+        <i class="material-icons prefix">insert_chart</i>
+        <input type="text" name="salary" required="true" value="<%- userStaff.salary %> " />
+        <label for="salary">Salary</label>
+      </div>
+
+      <div class="input-field col s12 l6 inline">
+        <i class="material-icons prefix">perm_contact_calendar</i>
+        <input name="age" type="text" value="<%- userStaff.age %>" />
+        <label for="age">Age</label>
+      </div>
+
+      <div class="input-field col s12">
+        <i class="material-icons prefix">home</i>
+        <input name="state" type="text" value="<%- userStaff.state %>" />
+        <label for="state">State</label>
+      </div>
+
+      <!--<input type="hidden" value="" /> -->
+
+      <button type="submit" class="btn align-center blue darken-1">
+        <i class="material-icons left">save</i> Save
+      </button>
+
+      <a href="/viewEmployee" class="btn btn-success">
+        <i class="material-icons left">pageview</i> View Staff</a
+      >
+    </form>
+  </div>
+</div>

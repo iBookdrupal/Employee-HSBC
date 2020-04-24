@@ -1,0 +1,36 @@
+<div class="container">
+  
+  <h5 class="center" id="employee-header"><%- title %></h5>
+  <div class="col s8 l5">
+    <form action="/new" autocomplete="off" method="POST">
+      <div class="input-field">
+        <i class="material-icons prefix">account_circle</i>
+        <input type="text" name="fullName" required="true" />
+        <label for="name">Full Name </label>
+      </div>
+
+      <div class="input-field col s12 l6 inline">
+        <i class="material-icons prefix">insert_chart</i>
+        <input type="text" name="salary" required="true" />
+        <label for="salary">Salary</label>
+      </div>
+
+      <div class="input-field col s12 l6 inline">
+        <i class="material-icons prefix">perm_contact_calendar</i>
+        <input name="age" type="text" />
+        <label for="age">Age</label>
+      </div>
+
+      <div class="input-field col s12">
+        <i class="material-icons prefix">home</i>
+        <input name="state" type="text" />
+        <label for="state">State</label>
+      </div>
+
+      <button class="btn align-center">Submit</button>
+      <a href="/viewEmployee" class="btn btn-success">
+        <i class="material-icons left">pageview</i> View Staff</a
+      >
+    </form>
+  </div>
+</div>

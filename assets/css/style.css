@@ -1,0 +1,26 @@
+#body-container {
+  min-height: 70%;
+}
+@media screen and (max-width: 670px) {
+  header {
+    min-height: 70px;
+  }
+}
+
+.section {
+  padding-top: 4vw;
+  padding-bottom: 4vw;
+}
+
+.tabs .indicator {
+  background-color: #1a237e;
+}
+
+.tabs .tab a:focus,
+.tabs .tab a:focus.active {
+  background: transparent;
+}
+
+#employee-header {
+  padding: 15px 5px;
+}

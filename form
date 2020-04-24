@@ -1,0 +1,32 @@
+
+
+
+
+<form action="/employee" method="POST" autocomplete="off">
+    <div class="form-group">
+        <label for="Full Name">Full Name: </label>
+        <input type="text" class="form-control" name="fullName" placeholder="Full Name">
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email: </label>
+        <input type="text" class="form-control" name="email" placeholder="name@email.com">
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="Mobile">Mobile: </label>
+            <input type="text" class="form-control" name="Mobile" placeholder="Mobile Number">
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="City">City: </label>
+            <input type="text" class="form-control" name="Mobile" placeholder="City">
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Submit</button>
+    </div>
+</form>
