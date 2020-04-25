@@ -1,11 +1,8 @@
 const express = require('express');
-var router = express.Router();
-var mongoose = require('mongoose');
-//const Employee = mongoose.model('Employee');
+const router = express.Router();
 const Employee = require('../model/employee');
-var ObjectID = require('mongodb').ObjectID;
 
-//? get Employees
+//* get Employees
 router.get('/addEmployee', (req, res, next) => {
   res.render('addEmployee', {
     title: 'Register New Employee',
@@ -17,7 +14,7 @@ router.get('/viewEmployee', (req, res, next) => {
   Employee.find({}, (err, docs) => {
     if (err) res.send('Unable to retrieve data from the Database! ' + err);
     else
-      res.render('viewData', {
+      res.render('viewEmployee', {
         users: docs,
         Message: "HSBC Employer's List",
       });
@@ -27,12 +24,13 @@ router.get('/viewEmployee', (req, res, next) => {
 //* Post Data
 
 router.post('/new', (req, res) => {
-  var employee = new Employee();
+  let {fullName, salary, age, state} = req.body;
+  let employee = new Employee();
 
-  employee.fullName = req.body.fullName;
-  employee.salary = req.body.salary;
-  employee.age = req.body.age;
-  employee.state = req.body.state;
+  employee.fullName = fullName;
+  employee.salary = salary;
+  employee.age = age;
+  employee.state = state;
 
   employee.save((err, doc) => {
     if (err) res.send('Error reaching the server! ' + err);
@@ -53,72 +51,44 @@ router.get('/delete/:_id', (req, res) => {
   );
 });
 
-//get Edit
-router.get('/:_id/update', (req, res, next) => {
-  Employee.findById({_id: req.params._id}, function (err, docs) {
-    if (err) res.json(err);
-    else {
+//* get Edit
+router.get('/employee:_id', (req, res) => {
+  Employee.findById({_id: req.params._id}, (err, data) => {
+    if (err) {
+      res.json(err);
+    } else {
       res.render('editEmployee', {
-        title: `Updating ${docs.fullName}'s Record`,
-        userStaff: docs,
+        title: `Updating ${data.fullName}'s Record`,
+        allStaff: data,
       });
-      next();
     }
   });
 });
 
-router.put('/:_id/update', function (req, res) {
-  Employee.update(
-    req.params._id,
-    {
-      $set: req.body,
-    },
-    function (err, docs) {
-      if (err) res.send('unable to update ' + err);
-      else {
-        res.send('Update Successfully');
-      }
+//* Edit
+router.post('/employee:_id', (req, res) => {
+  //* express
+  let {fullName, salary, age, state} = req.body;
+  let employee = {};
+
+  employee.fullName = fullName;
+  employee.salary = salary;
+  employee.age = age;
+  employee.state = state;
+
+  let query = {_id: req.params._id};
+
+  Employee.findOneAndUpdate(query, employee, {useFindAndModify: false}, (err) => {
+    //* Mongoose
+    if (err) {
+      res.send('unable to update ' + err);
+    } else {
+      console.log(employee.fullName);
+      //res.send('Update Successfully');
+      res.redirect('/viewEmployee');
+      console.log(employee);
     }
-  );
-});
-
-/*
-router.put('/:_id/update', function (req, res) {
-  var employee = {
-    fullName: req.body.fullName,
-    salary: req.body.salary,
-    age: req.body.age,
-    state: req.body.state,
-  };
-  employee = {$set: employee};
-  Employee.update({_id: req.params._id}, employee)
-    .then(() => {
-      res.send(employee);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
-*/
-/*
-
-Employee.update({id: req.params._id}, employee, function (err, docs) {
-    if (err) res.json(err);
-    else res.redirect('/viewEmployee');
   });
-router.put('/:_id/update', function (req, res) {
-  Employee.update(
-    req.params._id,
-    {
-      $set: req.body,
-    },
-    function (err, docs) {
-      if (err) res.send('unable to update ' + err);
-      else {
-        res.send('Update Successfully');
-      }
-    }
-  );
 });
-*/
+
 module.exports = router;

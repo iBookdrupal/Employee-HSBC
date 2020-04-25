@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon app",
-    "run": "nodemon app"
+    "dev": "nodemon app"
   },
   "author": "iBook",
   "license": "ISC",

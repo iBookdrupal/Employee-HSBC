@@ -7,7 +7,7 @@
       <i class="material-icons">add</i>
     </a>
   </p>
-  <% for(var user of users ) { %>
+  <% for(let user of users ) { %>
 
   <div class="col s12 l3">
     <div class="card">
@@ -21,7 +21,7 @@
       <div class="card-action">
         <!--? Update button-->
 
-        <a href="/<%- user._id %>/update" class="pink-text"><i class="material-icons right">edit</i></a>
+        <a href="/employee<%- user._id %>" class="pink-text"><i class="material-icons right">edit</i></a>
         <form method="POST" action="/delete/">
           <!--? Delete button-->
           <a href="/delete/<%- user._id %>" class="pink-text"
@@ -34,8 +34,4 @@
 
   <%} %>
 </div>
-<script>
-  $(document).ready(function () {
-    $('.tooltipped').tooltip();
-  });
-</script>
+<script></script>

@@ -4,9 +4,9 @@ const mongoose = require('mongoose');
 const expressLayouts = require('express-ejs-layouts');
 const employeeController = require('./controller/employeeController');
 
-var app = express();
+const app = express();
 
-app.set('views', path.join(__dirname, 'views'));
+//app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 //app.use(bodyParser());
@@ -16,7 +16,6 @@ app.use(expressLayouts);
 app.use('/assets', express.static('assets'));
 
 const url = 'mongodb://localhost/employeeDB';
-
 mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true});
 
 //using controller, 1st parameter folder to display, second instance of the controller

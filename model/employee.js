@@ -4,14 +4,20 @@ const Schema = mongoose.Schema;
 var EmpSchema = new Schema({
   fullName: {
     type: String,
-    required: 'This field is required',
+    required: false,
   },
   salary: {
     type: Number,
-    required: 'This field is required',
+    required: false,
   },
-  age: Number,
-  state: String,
+  age: {
+    type: Number,
+    required: false,
+  },
+  state: {
+    type: String,
+    required: false,
+  },
 });
 
 module.exports = mongoose.model('Employee', EmpSchema);
